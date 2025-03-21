@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawsitive Vibes - Your Trusted Pet Care Partner in Delhi</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333; /* Darker text for better contrast on white */
+            background-color: #fff; /* White background */
+            overflow-x: hidden; /* Prevent horizontal scroll due to snowflakes */
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        header {
+            background-color: #000; /* Black header */
+            padding: 0rem 0; /* Smaller padding for a smaller header */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            color: #ff8c00; /* Orange logo */
+            font-size: 2rem; /* Larger logo font */
+            font-weight: 700;
+            font-family: 'Pacifico', cursive; /* Creative font for logo */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px; /* Slightly less margin */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff; /* White navigation links */
+            font-weight: 600;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0; /* Add some vertical padding for better touch targets */
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00; /* Orange hover effect */
+        }
+
+        section {
+            padding: 60px 0; /* Slightly less padding for sections */
+        }
+
+        .hero {
+            background-color: #f2f2f2; /* Light gray background for hero */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+
+        .hero .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-image {
+            flex: 1; /* Take up 1/2 of the space */
+            max-width: 50%;
+            height: auto;
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Keep aspect ratio */
+        }
+
+        .hero-content {
+            flex: 1; /* Take up the other 1/2 of the space */
+            padding-left: 50px; /* Add some space between image and text */
+            color: #000; /* Black text on hero */
+            text-align: left; /* Align text to the left within its container */
+        }
+
+        .hero h1 {
+            font-size: 3rem; /* Larger headline */
+            margin-bottom: 20px;
+            color: #ff8c00; /* Orange headline */
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .hero section {
+            padding: 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: #ff8c00; /* Orange button */
+            color: #fff;
+        }
+
+        .button:hover {
+            background-color: #e07e00;
+        }
+
+        .about .container {
+            text-align: left;
+        }
+
+        .about h2,
+        .services h2,
+        .pet-care-tips h2,
+        .contact h2 {
+            color: #000; /* Black section titles */
+            font-size: 2.5rem;
+            margin-bottom: 30px; /* Slightly less margin */
+            text-align: center;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 2;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .services .container,
+        .pet-care-tips .container {
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px; /* Slightly less margin */
+            text-align: left;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 25px; /* Slightly less padding */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+            border-bottom: 3px solid #ff8c00; /* Orange border */
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item img {
+            max-width: 60px;
+            height: auto;
+            margin-bottom: 15px; /* Slightly less margin */
+            display: block;
+            filter: grayscale(100%); /* Initially grayscale */
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .service-item:hover img {
+            filter: none; /* Remove grayscale on hover */
+        }
+
+        .service-item h3 {
+            color: #000;
+            margin-top: 0;
+            margin-bottom: 10px; /* Slightly less margin */
+            font-size: 1.25rem;
+        }
+
+        .pet-care-tips {
+            background-color: #f2f2f2; /* Light gray background for pet care tips */
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px; /* Slightly less gap */
+            margin-top: 30px; /* Slightly less margin */
+        }
+
+        .tip-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border-bottom: 3px solid #ff8c00; /* Orange border */
+        }
+
+        .tip-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 220px; /* Slightly smaller image height */
+        }
+
+        .tip-card-content {
+            padding: 20px; /* Slightly less padding */
+        }
+
+        .tip-card h3 {
+            color: #000;
+            margin-top: 0;
+            margin-bottom: 10px; /* Slightly less margin */
+            font-size: 1.1rem;
+        }
+
+        .tip-card p {
+            line-height: 1.7;
+            margin-bottom: 15px; /* Slightly less margin */
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #ff8c00;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #e07e00;
+        }
+
+        .contact .container {
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 30px; /* Slightly less margin */
+            color: #000;
+        }
+
+        .contact-info address {
+            font-style: normal;
+            line-height: 1.8;
+            margin-bottom: 10px; /* Slightly less margin */
+        }
+
+        .contact-info a {
+            color: #ff8c00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            text-align: center;
+        }
+
+        .contact-form h3 {
+            color: #000;
+            font-size: 1.75rem;
+            margin-bottom: 20px; /* Slightly less margin */
+        }
+
+        footer {
+            background-color: #000; /* Black footer */
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0; /* Smaller padding for footer */
+            font-size: 0.9rem;
+        }
+
+        footer .container {
+            padding: 1rem; /* Smaller padding for footer container */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header nav {
+                margin-top: 10px; /* Less top margin for nav */
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header nav ul li {
+                margin: 8px 0; /* Less margin for nav items */
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px 30px;
+                align-items: center;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-bottom: 20px; /* Less bottom margin */
+                max-width: 80%; /* Adjust image width on smaller screens */
+            }
+
+            .hero-content {
+                padding-left: 0;
+                margin-bottom: 30px; /* Less bottom margin */
+                text-align: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                order: -1;
+                margin-bottom: 20px; /* Less bottom margin */
+            }
+
+            .services-grid,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Confetti Animation */
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: confetti-fall 3s ease-out infinite;
+        }
+
+        .confetti--square {
+            border-radius: 0;
+        }
+
+        .confetti--star {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(0, calc(100vh + 20px), 0) rotateX(360deg) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Pawsitive Vibes</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pet-care-tips">Pet Care Tips</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero" style="padding-top: 0;">
+        <div class="confetti-container">
+            </div>
+        <div class="container">
+            <div class="hero-image">
+                <img src="https://th.bing.com/th/id/OIG1.MSyRJz68UETry5P8gDQx?pid=ImgGn" alt="Happy dog being brushed">
+            </div>
+            <div class="hero-content">
+                <h1>Your Partner in Happy & Healthy Pets</h1>
+                <p>At Pawsitive Vibes, we offer premium pet care services in Delhi, designed with your pet's well-being and your peace of mind as our top priority.</p>
+                <a href="#contact" class="button">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to Pawsitive Vibes, your trusted neighborhood pet care shop in the heart of CR Park, Delhi. We understand the unique bond you share with your pets and are committed to providing them with the highest standard of care.</p>
+                    <p>Our philosophy is simple: to create a nurturing and stimulating environment where pets feel safe, loved, and happy. Our team comprises experienced and passionate pet care professionals dedicated to meeting the individual needs of every animal in our care.</p>
+                    <p>We cater to the health-conscious families of Delhi, offering services and products that promote the overall well-being of your furry, feathered, and scaled companions. From premium nutrition to engaging daycare and gentle grooming, we're here to support you in providing the best possible life for your beloved pets.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://th.bing.com/th/id/OIG4.89dwR.peYDhq4LRjiwn8?pid=ImgGn" alt="Our dedicated pet care team" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-cut fa-2x" style="color: #ff8c00; margin-bottom: 15px; display: block;"></i>
+                    <h3>Grooming & Styling</h3>
+                    <p>Expert grooming services to keep your pet clean, comfortable, and looking their best.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-dog fa-2x" style="color: #ff8c00; margin-bottom: 15px; display: block;"></i>
+                    <h3>Daycare & Playtime</h3>
+                    <p>A fun and social environment for your pet to play, exercise, and make new friends.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-hotel fa-2x" style="color: #ff8c00; margin-bottom: 15px; display: block;"></i>
+                    <h3>Comfortable Boarding</h3>
+                    <p>Safe and cozy overnight stays with attentive care for your pet while you're away.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-utensils fa-2x" style="color: #ff8c00; margin-bottom: 15px; display: block;"></i>
+                    <h3>Premium Nutrition & Supplies</h3>
+                    <p>A curated selection of high-quality food and essential supplies for optimal pet health.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-graduation-cap fa-2x" style="color: #ff8c00; margin-bottom: 15px; display: block;"></i>
+                    <h3>Basic Training & Guidance</h3>
+                    <p>Positive reinforcement training to help your pet develop good behavior.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-heartbeat fa-2x" style="color: #ff8c00; margin-bottom: 15px; display: block;"></i>
+                    <h3>Wellness Support</h3>
+                    <p>Guidance and partnerships for your pet's overall health and well-being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pet-care-tips" class="pet-care-tips">
+        <div class="container">
+            <h2>Expert Pet Care Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <img src="https://th.bing.com/th/id/OIG3.5y14k4WS6WEk0tJfVp_O?pid=ImgGn" alt="Dog walking in a park">
+                    <div class="tip-card-content">
+                        <h3>The Joy of Daily Walks: Exercise for a Happy Dog</h3>
+                        <p>Regular exercise is vital for your dog's physical and mental health. Discover tips for making walks enjoyable...</p>
+                        <a href="#" class="read-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <img src="https://th.bing.com/th/id/OIG2.cBKG1qHgvnpWlVeuVxWh?pid=ImgGn" alt="Cat being gently brushed">
+                    <div class="tip-card-content">
+                        <h3>Gentle Grooming: Keeping Your Feline Friend Comfortable</h3>
+                        <p>Regular grooming prevents matting and keeps your cat's coat healthy. Learn our gentle grooming techniques...</p>
+                        <a href="#" class="read-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <img src="https://th.bing.com/th/id/OIG4.CWFiqHSJcWMa5qRCabO6?pid=ImgGn" alt="Bowl of healthy pet food">
+                    <div class="tip-card-content">
+                        <h3>Decoding Pet Food Labels: Choosing the Right Nutrition</h3>
+                        <p>Understanding pet food labels can be confusing. We break down the essentials for informed feeding choices...</p>
+                        <a href="#" class="read-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <iframe src="https://forms.gle/xrthtd82sykNHib29?embedded=true" width="640" height="856" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pawsitive Vibes. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start' // Align to the top of the section
+                    });
+                });
+            });
+
+            // Snowflake animation
+            const snowflakeContainer = document.createElement('div');
+            snowflakeContainer.style.position = 'fixed';
+            snowflakeContainer.style.top = '0';
+            snowflakeContainer.style.left = '0';
+            snowflakeContainer.style.width = '100%';
+            snowflakeContainer.style.height = '100%';
+            snowflakeContainer.style.pointerEvents = 'none';
+            snowflakeContainer.style.overflow = 'hidden';
+            document.body.appendChild(snowflakeContainer);
+
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.setProperty('--sf-left-end', `${Math.random() * 200 - 100}px`);
+                snowflake.style.animationDelay = `${Math.random() * 10}s`;
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = `${Math.random() * 1.5 + 0.7}em`;
+
+                snowflakeContainer.appendChild(snowflake);
+
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 10000); // Match animation duration
+            }
+
+            setInterval(createSnowflake, 200); // Create a new snowflake every 200 milliseconds
+
+            // Confetti animation
+            const confettiContainer = document.querySelector('.confetti-container');
+            const numberOfConfetti = 20; // Reduced number of confetti
+
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+            const shapes = ['confetti--square', 'confetti--star'];
+
+            for (let i = 0; i < numberOfConfetti; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+                confetti.classList.add(randomShape);
+                confetti.style.backgroundColor = randomColor;
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.animationDelay = `${Math.random() * 3}s`;
+                confetti.style.animationDuration = `${Math.random() * 2 + 2}s`; // Slightly varied duration
+                confetti.style.opacity = Math.random() * 0.8 + 0.2; // Slightly varied opacity
+                const randomRotation = Math.random() * 360;
+                confetti.style.setProperty('--rotation', `${randomRotation}deg`);
+                confettiContainer.appendChild(confetti);
+            }
+        });
+    </script>
+</body>
+</html>
